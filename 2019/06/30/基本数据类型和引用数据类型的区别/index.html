@@ -6,19 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | 安逸的完美世界</title>
+  <title>基本数据类型和引用数据类型的区别 | 安逸的完美世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="1、栈(stack)和堆（heap）Javascript 包含两种不同类型的值：基本类型值 引用类型值；  基本类型值：指的是保存在栈内存的简单数据段。">
+<meta name="keywords" content="Javascript基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/06/30/hello-world/index.html">
+<meta property="og:title" content="基本数据类型和引用数据类型的区别">
+<meta property="og:url" content="http://yoursite.com/2019/06/30/基本数据类型和引用数据类型的区别/index.html">
 <meta property="og:site_name" content="安逸的完美世界">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="1、栈(stack)和堆（heap）Javascript 包含两种不同类型的值：基本类型值 引用类型值；  基本类型值：指的是保存在栈内存的简单数据段。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-30T00:24:43.241Z">
+<meta property="og:image" content="http://yoursite.com/2019/06/30/基本数据类型和引用数据类型的区别/images/part2_01/neicun-one.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/30/基本数据类型和引用数据类型的区别/images/part2_01/neicun2.png">
+<meta property="og:updated_time" content="2019-06-30T02:20:10.581Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="基本数据类型和引用数据类型的区别">
+<meta name="twitter:description" content="1、栈(stack)和堆（heap）Javascript 包含两种不同类型的值：基本类型值 引用类型值；  基本类型值：指的是保存在栈内存的简单数据段。">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/30/基本数据类型和引用数据类型的区别/images/part2_01/neicun-one.png">
   
     <link rel="alternative" href="/atom.xml" title="安逸的完美世界" type="application/atom+xml">
   
@@ -61,7 +65,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/archives">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -143,7 +147,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/archives">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -158,39 +162,42 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-基本数据类型和引用数据类型的区别" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      基本数据类型和引用数据类型的区别
     </h1>
   
 
         
-        <a href="/2019/06/30/hello-world/" class="archive-article-date">
-  	<time datetime="2019-06-30T00:24:43.241Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-30</time>
+        <a href="/2019/06/30/基本数据类型和引用数据类型的区别/" class="archive-article-date">
+  	<time datetime="2019-06-30T02:12:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h2 id="1、栈-stack-和堆（heap）"><a href="#1、栈-stack-和堆（heap）" class="headerlink" title="1、栈(stack)和堆（heap）"></a>1、栈(stack)和堆（heap）</h2><p>Javascript 包含两种不同类型的值：基本类型值 引用类型值；</p>
+<blockquote>
+<p>基本类型值：指的是保存在栈内存的简单数据段。</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>引用类型值：指的是那些保存在堆内存的对象，意思是：变量中保存的实际上只是一个指针，这个指针指向内存堆中实际的值。</p>
+</blockquote>
+<h2 id="2、基本数据类型"><a href="#2、基本数据类型" class="headerlink" title="2、基本数据类型"></a>2、基本数据类型</h2><p>5 种常用类型：Number、 String、 Boolean、 Undefined、 Null ，基本数据类型的值是按值访问的，就是说我们可以操作保存在变量中的实际的值</p>
+<h3 id="基本数据类型的赋值是简单赋值，是存放在栈内存里的"><a href="#基本数据类型的赋值是简单赋值，是存放在栈内存里的" class="headerlink" title="基本数据类型的赋值是简单赋值，是存放在栈内存里的"></a>基本数据类型的赋值是简单赋值，是存放在栈内存里的</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fo = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> bar = fo; <span class="comment">// 将 fo 的值(10) 赋值给 bar ， bar  = 10 。</span></span><br><span class="line">fo = <span class="number">2</span>;       <span class="comment">// fo 的值声明为 2</span></span><br><span class="line"><span class="built_in">console</span>.log(fo, bar); <span class="comment">//fo = 2 ,b = 10</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>图解：<br><img src="images/part2_01/neicun-one.png" alt="栈内存"><br>从上面我们可以得知，当我改变fo中的数据时，bar中数据没有发生变化。</p>
+<h2 id="3、引用数据类型"><a href="#3、引用数据类型" class="headerlink" title="3、引用数据类型"></a>3、引用数据类型</h2><h3 id="引用数据类型：Object"><a href="#引用数据类型：Object" class="headerlink" title="引用数据类型：Object"></a>引用数据类型：Object</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fo = &#123;</span><br><span class="line">	a: <span class="number">10</span>   </span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> bar = fo;  </span><br><span class="line">fo.a = <span class="number">2</span>;  </span><br><span class="line"><span class="built_in">console</span>.log(fo.a, bar.a); <span class="comment">//fo = 2 ,b = 2</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>图解：<br><img src="images/part2_01/neicun2.png" alt="栈内存"></p>
+<p>从上面我们可以得知，当我改变fo中的数据时，bar中数据也发生了变化。当使用fo这个变量时，js解释器会通过bar存放的内存地址，找到内存中的相应地址，将其中的值取出来返回.</p>
 
       
 
@@ -230,6 +237,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Javascript基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -280,7 +298,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/30/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/30/基本数据类型和引用数据类型的区别/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -292,20 +310,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-    <a href="/2019/06/30/oneday/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          oneday
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -328,7 +332,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello-world" data-title="Hello World" data-url="http://yoursite.com/2019/06/30/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="基本数据类型和引用数据类型的区别" data-title="基本数据类型和引用数据类型的区别" data-url="http://yoursite.com/2019/06/30/基本数据类型和引用数据类型的区别/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -444,6 +448,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Javascript基础</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/home-1.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="学习小程序一周记录:截止目前时间,页面排序和简单逻辑已经没有问题,明天开始进行购物车逻辑学习,日常补充 js 基础 现代js">
+<meta name="keywords" content="小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小程序学习记录">
+<meta property="og:url" content="http://yoursite.com/2019/09/27/小程序学习记录/index.html">
+<meta property="og:site_name" content="安逸的完美世界">
+<meta property="og:description" content="学习小程序一周记录:截止目前时间,页面排序和简单逻辑已经没有问题,明天开始进行购物车逻辑学习,日常补充 js 基础 现代js">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-27T12:36:19.841Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小程序学习记录">
+<meta name="twitter:description" content="学习小程序一周记录:截止目前时间,页面排序和简单逻辑已经没有问题,明天开始进行购物车逻辑学习,日常补充 js 基础 现代js">
+  <link rel="canonical" href="http://yoursite.com/2019/09/27/小程序学习记录/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>小程序学习记录 | 安逸的完美世界</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">安逸的完美世界</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">记录自己的成长</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/27/小程序学习记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="安逸">
+      <meta itemprop="description" content="特立独行的普通人">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="安逸的完美世界">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">小程序学习记录
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-27 20:30:23 / 修改时间：20:36:19" itemprop="dateCreated datePublished" datetime="2019-09-27T20:30:23+08:00">2019-09-27</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/小程序/" itemprop="url" rel="index"><span itemprop="name">小程序</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>学习小程序一周记录:截止目前时间,页面排序和简单逻辑已经没有问题,明天开始进行购物车逻辑学习,日常补充 js 基础 <a href="https://zh.javascript.info" target="_blank" rel="noopener">现代js</a></p>
+<a id="more"></a>
+<h2 id="小程序开发框架-—-属性"><a href="#小程序开发框架-—-属性" class="headerlink" title="小程序开发框架 — 属性"></a>小程序开发框架 — 属性</h2><p>id   class   style   hidden   data-*   bind* / catch*</p>
+<blockquote>
+<p>数据绑定<br>列表渲染<br>条件渲染<br>模板引用   </p>
+</blockquote>
+<p>import  可以引入 <code>template</code> 里的内容<code>include</code>母版代码块外的所有代码都引入 ，相当于拷贝到了我们的 <code>include</code> 的这里 </p>
+<p>响应式像素 <code>wxss</code> =&gt;   尺寸单位 <code>rpx</code>  |  样式导入 |  内联样式 |  选择器 </p>
+<p>特性样式  外联样式 在 <code>.wxss</code> 中, 通过 <code>@import</code> 引入其他 .<br>！选择器 </p>
+<table>
+<thead>
+<tr>
+<th>样式</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>class</td>
+<td>.intro</td>
+</tr>
+<tr>
+<td>#id</td>
+<td>#firstname</td>
+</tr>
+<tr>
+<td>element</td>
+<td>view   选择所有 view 组件</td>
+</tr>
+<tr>
+<td>element,element</td>
+<td>view ,checkbox  选择文档的所有 view组件和checkbox组件</td>
+</tr>
+<tr>
+<td>::after</td>
+<td>view::after   在 view 后面插入内容</td>
+</tr>
+<tr>
+<td>::before</td>
+<td>view:;before</td>
+</tr>
+<tr>
+<td>!important</td>
+<td>style id .class element</td>
+</tr>
+</tbody></table>
+<p>wxs </p>
+<p>页面生命周期<br>|     |   |<br>|  —-  | —-  |<br>|onLoad    | 页面初次加载，微信会派发 onLoad事件 |<br>|onShow     | 一般我们是在 onLoad 和 onShow 里请求我们的服务器数据|<br>|onReady   |  从服务器拿到的数据已经回来了，|<br>|onHide    |<br>|onUnload   | </p>
+<h3 id="页面路由"><a href="#页面路由" class="headerlink" title="页面路由"></a>页面路由</h3><blockquote>
+<p>所有的页面全部由框架进行管理，框架以栈的形式，维护了我们的小程序页面</p>
+</blockquote>
+<p>路由方式：</p>
+<ol>
+<li>初始化(新页面入栈)    </li>
+</ol>
+<p>2.打开新页面(新页面入栈)<br>调用API<br>wx. navigateTo      或使用组件 <navigator open-type="navigateTo"> </navigator></p>
+<p>3.页面重定向<br>当前页面出栈，新页面入栈， <navigator><br>调用API    wx.redirectTo        或使用组件 <navigator open-type="redirectTo"> </navigator></navigator></p>
+<p>4.页面返回<br>页面不断出栈，直到页面目标返回页，新页面入栈<br>调用API    wx.navigateBack  或使用组件  <navigator open-type="navigateBack"> 或左上角按钮</navigator></p>
+<p>5.Tab切换<br>页面全部出栈，只留下新的Tab页面<br>调用API    wx.switchTab        或使用组件  <navigator open-type="switchTab "> </navigator></p>
+<p>6.重加载<br>页面全部出栈，只留下新的页面<br>调用API    wx.reLaunch         或使用组件  <navigator open-type="reLaunch"> </navigator></p>
+<p>事件<br>bindtap<br>            基础知识:冒泡事件 如何实现</p>
+<h4 id="view容器"><a href="#view容器" class="headerlink" title="view容器"></a>view容器</h4><p>组件是视图层的基本组成单元</p>
+<p>组件自带一些功能与微信风格的样式</p>
+<p>一个组件通常包括:开始标签和结束标签,属性用来修饰这个组件,内容在两个标签之内<br>视图容器,媒体组件,地图,开放能力,画布,基础内容,表单组件,导航</p>
+<p>view  scroll-view      swiper    movable-view                cover-view</p>
+<pre><code>滚动容器组件 轮播组件   可支持移动和缩放的组件  可以盖住原生组件 </code></pre><p>wx:for列表渲染中的 wx:key =” <em>this “  代表我们当前元素,</em>this 的使用只能是字符串或者数字的元素的数组</p>
+<table>
+<thead>
+<tr>
+<th>四种基本元素组件:</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>icon</td>
+<td>官方图标</td>
+</tr>
+<tr>
+<td>text</td>
+<td>\n  换行   selectable</td>
+</tr>
+<tr>
+<td>rich-text</td>
+<td>富文本</td>
+</tr>
+<tr>
+<td>progress</td>
+<td>进度条</td>
+</tr>
+<tr>
+<td>表单组件</td>
+<td></td>
+</tr>
+<tr>
+<td>button</td>
+<td>按钮    default   mini</td>
+</tr>
+<tr>
+<td>checkbox</td>
+<td>多选框</td>
+</tr>
+<tr>
+<td>form</td>
+<td>表单</td>
+</tr>
+<tr>
+<td>input</td>
+<td>输入框</td>
+</tr>
+<tr>
+<td>label</td>
+<td>标签   与表单控件,关联在一起,</td>
+</tr>
+<tr>
+<td>picker</td>
+<td>选择控件    - 主动触发,从底部弹起来 的滚动选择器[类似选择地区]</td>
+</tr>
+<tr>
+<td>picker-view</td>
+<td>嵌在页面内的选择控件</td>
+</tr>
+<tr>
+<td>radio</td>
+<td>单选</td>
+</tr>
+<tr>
+<td>switch</td>
+<td>开关</td>
+</tr>
+<tr>
+<td>text-area</td>
+<td>多行文本框</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bindfn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">if</span>(e.detail.value==<span class="string">'123'</span>)&#123;</span><br><span class="line">wx.hideKeyboard( )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果是一个 checkbox 的时候我们可以通过修改 swith的type =”checkbox” , 可以绑定 change 事件</strong></p>
+<p>媒体组件 - 以下都没有看: <a href="https://www.bilibili.com/video/av23470615/?p=51" target="_blank" rel="noopener">https://www.bilibili.com/video/av23470615/?p=51</a><br>|  媒体组件   |   |<br>|  —-  | —-  |<br>| audio  | 音频组件 |<br>|camera  |相机组件|<br>|image |图片组件|<br>|video  |视频组件|<br>|live-player| 实时播放组件|<br>|live-pusher | 实时录制组件|</p>
+<hr>
+<h2 id="微信API"><a href="#微信API" class="headerlink" title="微信API"></a>微信API</h2><p><em>wx.on</em>    监听我们某个api事件的接口<br><em>Object参数</em>  <code>success</code>成功 <code>fail</code>失败  <code>complete</code>完成()不论失败与否<br><em>wx.get/wx.set</em>  </p>
+<p>直调函数:指在我们程序运行的时候,立即运行的一个被调函数<br>回调函数:在程序运行之后,回头再去执行的被调函数</p>
+<h3 id="网络请求"><a href="#网络请求" class="headerlink" title="网络请求"></a>网络请求</h3><p>wx.request</p>
+<p>实例中  </p>
+<h2 id="点击删除-删除下标对应的整个元素-需要先绑定下标-使用-data-id-lt-￼1-gt-this-data-items-splice-e-currentTarget-dataset-id-1-即可"><a href="#点击删除-删除下标对应的整个元素-需要先绑定下标-使用-data-id-lt-￼1-gt-this-data-items-splice-e-currentTarget-dataset-id-1-即可" class="headerlink" title="点击删除,删除下标对应的整个元素, 需要先绑定下标, 使用 data-id = this.data.items.splice(e.currentTarget.dataset.id,1) 即可 "></a>点击删除,删除下标对应的整个元素, 需要先绑定下标, 使用 <code>data-id =</code> this.data.items.splice(e.currentTarget.dataset.id,1) 即可 </h2><p>4 5 讲中  </p>
+<ol>
+<li>simba.js  关于一些原生 JS 的扩展和实现 ,可以参考 [<a href="https://gitee.com/shendusimba/simbajs]" target="_blank" rel="noopener">https://gitee.com/shendusimba/simbajs]</a></li>
+<li>mock.min.js  关于生成假数据方便调用 使用 easy-mock  </li>
+<li>封装 mock开发环境或者 线上调用接口的js 并使用promise优化,将异步操作,由嵌套转变为链式</li>
+<li></li>
+</ol>
+<hr>
+<p>6 7 8 讲中  </p>
+<p>swiper  1. 做轮播图  2. 做滑动切换的效果 [t_swiper]</p>
+<p>v:if=”false“  通过点击控制 为true 或者 true</p>
+<p>tabBar底部菜单切换 使用 iconfont png图标<br>需要在 app.json 中进行配置 跳转路由使用 wx.swithTab</p>
+<p>11  12 讲<br>扫一扫是为了更快捷的操作<br>通过大分类加载二级分类及商品的逻辑<br>测试图片地址:<a href="http://oano.cn/mockimg/1.webp" target="_blank" rel="noopener">http://oano.cn/mockimg/1.webp</a></p>
+<p>白天任务,<br>1.switch 代表多个if进行判断  o 练习:<a href="https://zh.javascript.info/switch" target="_blank" rel="noopener">https://zh.javascript.info/switch</a><br>2.查询forEach 学习  o<br>3.抽空巩固js基础 数组 字符串等   = 晚上整</p>
+<p><code>{item.price.toFixed(2)}</code> //保留两位小数  </p>
+<p><code>parseInt( )</code>  // 转变成数字</p>
+<p> var arr = [1,2,3,4,5,5,5,4,3,2,2,22,2,]<br>    console.log(arr.slice(0,6))</p>
+<p> concat()<br> stringify()  </p>
+<p> 获取位置,选择当前位置,用到 api 的位置 </p>
+<p> 百度,高德开启服务api,可以快速通过 key,经,纬度来进行快速获取   </p>
+<p>早上来了继续看13 第34分钟</p>
+<p>早上来了继续看16 第34分钟</p>
+<hr>
+<p>第17集 抽空看 并应用于自己的小程序里<br><a href="https://www.bilibili.com/video/av56813745" target="_blank" rel="noopener">https://www.bilibili.com/video/av56813745</a></p>
+<p>抽空将 simba 课程的标题进行记录</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/小程序/" rel="tag"># 小程序</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/27/微信小程序-解决-view-文字-过多-溢出的问题，超过行数后隐藏显示省略号/" rel="next" title="微信小程序 解决 view 文字 过多 溢出的问题，超过行数后隐藏显示省略号">
+                  <i class="fa fa-chevron-left"></i> 微信小程序 解决 view 文字 过多 溢出的问题，超过行数后隐藏显示省略号
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#小程序开发框架-—-属性"><span class="nav-number">1.</span> <span class="nav-text">小程序开发框架 — 属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#页面路由"><span class="nav-number">1.1.</span> <span class="nav-text">页面路由</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#view容器"><span class="nav-number">1.1.1.</span> <span class="nav-text">view容器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微信API"><span class="nav-number">2.</span> <span class="nav-text">微信API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络请求"><span class="nav-number">2.1.</span> <span class="nav-text">网络请求</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点击删除-删除下标对应的整个元素-需要先绑定下标-使用-data-id-lt-￼1-gt-this-data-items-splice-e-currentTarget-dataset-id-1-即可"><span class="nav-number">3.</span> <span class="nav-text">点击删除,删除下标对应的整个元素, 需要先绑定下标, 使用 data-id = this.data.items.splice(e.currentTarget.dataset.id,1) 即可 </span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="安逸">
+  <p class="site-author-name" itemprop="name">安逸</p>
+  <div class="site-description" itemprop="description">特立独行的普通人</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">安逸</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

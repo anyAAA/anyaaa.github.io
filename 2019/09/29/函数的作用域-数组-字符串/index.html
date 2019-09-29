@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/home-1.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="javascript 关于数组 字符串的简单操作 需时长默记">
+<meta name="keywords" content="Javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数的作用域 数组 字符串">
+<meta property="og:url" content="http://yoursite.com/2019/09/29/函数的作用域-数组-字符串/index.html">
+<meta property="og:site_name" content="安逸的完美世界">
+<meta property="og:description" content="javascript 关于数组 字符串的简单操作 需时长默记">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-29T03:59:36.803Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="函数的作用域 数组 字符串">
+<meta name="twitter:description" content="javascript 关于数组 字符串的简单操作 需时长默记">
+  <link rel="canonical" href="http://yoursite.com/2019/09/29/函数的作用域-数组-字符串/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>函数的作用域 数组 字符串 | 安逸的完美世界</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">安逸的完美世界</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">记录自己的成长</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-schedule">
+      
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-sitemap">
+      
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/29/函数的作用域-数组-字符串/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="安逸">
+      <meta itemprop="description" content="沉下心,给自己多一个机会">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="安逸的完美世界">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">函数的作用域 数组 字符串
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-29 11:57:16 / 修改时间：11:59:36" itemprop="dateCreated datePublished" datetime="2019-09-29T11:57:16+08:00">2019-09-29</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>javascript 关于数组 字符串的简单操作 需时长默记</p>
+<a id="more"></a>
+<h3 id="函数的作用域-变量的作用域：变量作用的范围"><a href="#函数的作用域-变量的作用域：变量作用的范围" class="headerlink" title="函数的作用域  /  变量的作用域：变量作用的范围"></a>函数的作用域  /  变量的作用域：变量作用的范围</h3><ol>
+<li><p>全局作用域 (全局变量)<br>执行完函数，里面的内存不会清空</p>
+</li>
+<li><p>函数作用域 (局部作用域)局部变量<br>函数执行完，里面的变量就都清空了； 临时变量只用一次<br>在函数执行是开辟空间，执行完就释放掉了</p>
+</li>
+</ol>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><pre><code>一组相关的数据</code></pre><p>PS：</p>
+<p>var months =[1,2,3,4,5,6,7,8,9,10,11,12]</p>
+<p>var months = new Array;</p>
+<p>元素<br>    元素下标<br>    在数组中  标识；下标 从0开始<br>访问<br>    变量名字<br> 数组的长度<br>    数组中元素的个数</p>
+<p>// 谈到对象 就有属性和方法</p>
+<h3 id="数组元素的-增删改查"><a href="#数组元素的-增删改查" class="headerlink" title="数组元素的 增删改查"></a>数组元素的 增删改查</h3><p>length      array.length</p>
+<p>push 在数组中最后追加一个元素。 推 ，放   <code>array.push(&quot;!&quot;)</code></p>
+<p>pop    删除最后一个数组元素  <code>array.pop</code></p>
+<p>shift  删除第一个数组元素        <code>array.shift</code></p>
+<h2 id="unshift-插入到第一个数组元素-array-unshift-quot-quot"><a href="#unshift-插入到第一个数组元素-array-unshift-quot-quot" class="headerlink" title="unshift 插入到第一个数组元素   array.unshift(&quot;!&quot;)"></a>unshift 插入到第一个数组元素   <code>array.unshift(&quot;!&quot;)</code></h2><h4 id="中间位置-移除-添加"><a href="#中间位置-移除-添加" class="headerlink" title="中间位置 移除  /  添加"></a>中间位置 移除  /  添加</h4><p><code>splice(起始位置，元素的个数)</code>      删除</p>
+<blockquote>
+<p>第一个参数是从哪个位置开始 (开始删) ，第二个参数是删除的个数</p>
+</blockquote>
+<p><code>splice(3,3)</code>                      从第3个位置开始，删除包括3开始的3个数  </p>
+<p><code>splice(array.length-1,1)</code>         删除倒数第一个</p>
+<p>中间用逗号隔开，例如  splice(1,2);</p>
+<p> <code>splice(插入元素起始位置，0，[插入元素])</code>  插入<br> bbb.array(1,2,”charu”);</p>
+<p> 上面的这里：1表示当前插入的位置是1<br>            2表示删除包含位置1的2个数<br>            charu 表示在位置1插入”charu”</p>
+<h4 id="继续“查询-”"><a href="#继续“查询-”" class="headerlink" title="继续“查询 ”"></a>继续“查询 ”</h4><p>console.log(month[3]);<br>下标查询</p>
+<p>一段数据的查询：  <code>slice</code>  都是位置<br>months.slice(起始位置，结束位置-1)<br>months.slice(3,8) 3-8的数组元素 返回结果还是一个数组。</p>
+<blockquote>
+<p>返回下标为3，到8，但是不包含8的数组元素</p>
+</blockquote>
+<p><code>slice</code> (1,1); 查询1开始 查询第一个位置的</p>
+<p>join (“-“); 用 - 连接数据 / 即转变成字符串</p>
+<blockquote>
+<p>var result=months.slice(3.6);  返回一段数据的结果 3位置 到 6位置-1</p>
+</blockquote>
+<blockquote>
+<p>var result=months.join(“-“)   用”-“让数组进行连接</p>
+</blockquote>
+<p>reverse();反转  months.reverse()</p>
+<p>toString();  用逗号继续连接各个数组  逻辑值转换为字符串 并返回结果；</p>
+<p>conact();   用于返回 连接两个或多个数组   arrayObject.conact(arrayX,arrayX)  arrayX可以是具体的值 也可以是数组对象</p>
+<p>var a = [1,2,3];</p>
+<p>a.concat(4,5);</p>
+<p>输出结果是   1,2,3,4,5</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=[<span class="number">1</span>,<span class="number">2</span>];</span><br><span class="line"><span class="keyword">var</span> b=[<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line"> <span class="keyword">var</span> e=[<span class="string">"sd"</span>,<span class="string">"ef"</span>,<span class="string">"jk"</span>]</span><br><span class="line"><span class="keyword">var</span> c=a.concat(b,e)</span><br></pre></td></tr></table></figure>
+
+<p>sort(0)  排序 比较大小  升序；<br>  (O_o)??↓ 降序</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> j=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line"></span><br><span class="line">j.sort();</span><br><span class="line">j.sort.reverse()    <span class="comment">//达成降序效果</span></span><br><span class="line">  或者</span><br><span class="line">j.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> b-a;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="字符串-String"><a href="#字符串-String" class="headerlink" title="字符串   String"></a>字符串   String</h2><p>“abc”.   加点以后是 字符串对象 不是单纯的字符串了哦~</p>
+<p>####### 属性:<br>length 包含字符的个数 abc.length</p>
+<p>####### 方法:</p>
+<p><code>new string()</code> 定义一个新的字符串</p>
+<p><code>charAt</code>    字符串也是从0开始的   aa.charAt(index)   index 必需。表示字符串中某个位置的数字，即字符在字符串中的下标。   返回单个的元素值</p>
+<p><code>concat</code> 连接字符串 但是不影响原字符串</p>
+<p>var result3=str+1;  //连接作用</p>
+<p><code>indexOf()</code> 检索字符串。返回值 -1：未检索到；  0 ：第一位开始</p>
+<p>indexOf(“检索当前内容是否在字符串中存在”)</p>
+<p><code>replace</code>()   替换位置； 里面两个参数</p>
+<p><code>search()</code>  检索与正则表达式相匹配的值</p>
+<p><code>slice(start,end)</code>  提取字符串的片段，并在新的字符串中返回被提取的部分</p>
+<p><code>split()</code> 把字符串分割为字符串数组  括号内填写 需要用哪个符号来分开；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str1=<span class="string">"a1b1c1d1e"</span>;</span><br><span class="line">str1.split(<span class="string">"1"</span>);</span><br><span class="line"></span><br><span class="line">输出： [<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str2=<span class="string">"abcdef"</span>;</span><br><span class="line">str2.split(<span class="string">""</span>);</span><br><span class="line"></span><br><span class="line">输出： [<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>,<span class="string">"e"</span>,<span class="string">"f"</span>]</span><br></pre></td></tr></table></figure>
+
+<p><code>substr()</code> 从起始索引号提取字符串中指定数目的字符</p>
+<p>str.substr(4,5);  从位置4开始，提取 1 2 3 4 5， 并返回一个新的字符串 但是不改变原字符串</p>
+<p>str.substr(4)  从位置4开始 返回截止末位所有的字符</p>
+<p><code>substring()</code> 提取字符串中两个指定的索引号之间的字符</p>
+<p> str.substring(4,6) 和slice 同理 都是end位置 -1；</p>
+<blockquote>
+<hr>
+<p>需要查找  slice , substr , substring 的区别</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Javascript/" rel="tag"># Javascript</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/27/小程序-mock-封装记录/" rel="next" title="小程序 mock 封装记录">
+                  <i class="fa fa-chevron-left"></i> 小程序 mock 封装记录
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的作用域-变量的作用域：变量作用的范围"><span class="nav-number">1.</span> <span class="nav-text">函数的作用域  /  变量的作用域：变量作用的范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">2.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组元素的-增删改查"><span class="nav-number">3.</span> <span class="nav-text">数组元素的 增删改查</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unshift-插入到第一个数组元素-array-unshift-quot-quot"><span class="nav-number"></span> <span class="nav-text">unshift 插入到第一个数组元素   array.unshift(&quot;!&quot;)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#中间位置-移除-添加"><span class="nav-number">0.1.</span> <span class="nav-text">中间位置 移除  /  添加</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继续“查询-”"><span class="nav-number">0.2.</span> <span class="nav-text">继续“查询 ”</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串-String"><span class="nav-number"></span> <span class="nav-text">字符串   String</span></a></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="安逸">
+  <p class="site-author-name" itemprop="name">安逸</p>
+  <div class="site-description" itemprop="description">沉下心,给自己多一个机会</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">安逸</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

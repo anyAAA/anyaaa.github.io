@@ -28,7 +28,7 @@
     scheme: 'Gemini',
     version: '7.4.0',
     exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
     copycode: {"enable":false,"show_result":false,"style":null},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -44,7 +44,7 @@
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
     localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
+    path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
       copy_button: '复制',
@@ -64,7 +64,7 @@
 <meta property="og:description" content="1.本地创建 mock 数据2.使用 easy-mock 创建线上假数据并使用">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/.com//1.jpg">
-<meta property="og:updated_time" content="2019-09-28T03:40:29.474Z">
+<meta property="og:updated_time" content="2019-09-28T06:09:04.966Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小程序 mock 封装记录">
 <meta name="twitter:description" content="1.本地创建 mock 数据2.使用 easy-mock 创建线上假数据并使用">
@@ -206,6 +206,28 @@
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-schedule">
+      
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-sitemap">
+      
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
   </ul>
 
 </nav>
@@ -237,7 +259,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="安逸">
-      <meta itemprop="description" content="特立独行的普通人">
+      <meta itemprop="description" content="沉下心,给自己多一个机会">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -272,7 +294,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-28 11:40:29" itemprop="dateModified" datetime="2019-09-28T11:40:29+08:00">2019-09-28</time>
+                <time title="修改时间：2019-09-28 14:09:04" itemprop="dateModified" datetime="2019-09-28T14:09:04+08:00">2019-09-28</time>
               </span>
             
           
@@ -320,7 +342,6 @@
 <h3 id="3-home-js-使用"><a href="#3-home-js-使用" class="headerlink" title="3.home.js 使用"></a>3.<code>home.js</code> 使用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(<span class="string">"/user"</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// console.log(res.data.advList)</span></span><br><span class="line">      <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        pageNames: res.data.userlist</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
 
 <h2 id="二-使用-easy-mock-创建数据并使用"><a href="#二-使用-easy-mock-创建数据并使用" class="headerlink" title="二.使用 easy-mock 创建数据并使用"></a>二.使用 easy-mock 创建数据并使用</h2><p>登录网址 <a href="https://easy-mock.com/" target="_blank" rel="noopener">easy-mock 登录地址</a></p>
-<p>![](mock 总结_files/1.jpg)</p>
 <h3 id="1-在-utils-下创建-ajax-js"><a href="#1-在-utils-下创建-ajax-js" class="headerlink" title="1.在 utils 下创建 ajax.js"></a>1.在 <code>utils</code> 下创建 <code>ajax.js</code></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> constant = <span class="built_in">require</span>(<span class="string">'../config/constant.js'</span>)</span><br><span class="line"><span class="keyword">const</span> _ = <span class="built_in">require</span>(<span class="string">'../utils/simba.js'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ajax = <span class="function">(<span class="params">url, data, method=<span class="string">"get"</span></span>) =&gt;</span> &#123;</span><br><span class="line">  wx.showLoading(&#123;</span><br><span class="line">    title: <span class="string">'加载中'</span>,</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"请求了"</span>+url,<span class="string">"参数是"</span>+<span class="built_in">JSON</span>.stringify(data))</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">success, f</span>) =&gt;</span> &#123; <span class="comment">// s代表成功  f代表失败</span></span><br><span class="line">    wx.request(&#123;</span><br><span class="line">      method,  <span class="comment">// 通过默认方式,默认是 get</span></span><br><span class="line">      data,</span><br><span class="line">      url: constant.BASE_URL + url,</span><br><span class="line">      success,</span><br><span class="line">      complete() &#123;</span><br><span class="line">        wx.hideLoading()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">//腾讯 api</span></span><br><span class="line"><span class="keyword">var</span> getCityName = <span class="function">(<span class="params">longitude, latitude</span>)=&gt;</span>&#123;</span><br><span class="line"> <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res,fail</span>)=&gt;</span>&#123;</span><br><span class="line">   wx.request(&#123;</span><br><span class="line">     url: <span class="string">'https://apis.map.qq.com/ws/geocoder/v1'</span>,</span><br><span class="line">     data: &#123;</span><br><span class="line">       key: <span class="string">'2TDBZ-DTK3X-MO64M-7GQWJ-QUJBS-EPBZ5'</span>,</span><br><span class="line">       location: latitude + <span class="string">','</span> + longitude</span><br><span class="line">     &#125;,</span><br><span class="line">     success: <span class="function"><span class="params">result</span> =&gt;</span> &#123;</span><br><span class="line">       res(result.data.result.address_component)</span><br><span class="line">      <span class="comment">//  res = res.data.result.address_component</span></span><br><span class="line">      <span class="comment">//  this.setData(&#123;</span></span><br><span class="line">      <span class="comment">//    city: res.province + res.city + res.district + res.street + res.street_number</span></span><br><span class="line">      <span class="comment">//  &#125;)</span></span><br><span class="line">     &#125;</span><br><span class="line">   &#125;)</span><br><span class="line"> &#125;)</span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">//百度api</span></span><br><span class="line"><span class="keyword">var</span> getCityNameBD = <span class="function">(<span class="params">longitude, latitude</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res, fail</span>) =&gt;</span> &#123;</span><br><span class="line">    wx.request(&#123;</span><br><span class="line">      url: <span class="string">'http://api.map.baidu.com/reverse_geocoding/v3'</span>,</span><br><span class="line">      data: &#123;</span><br><span class="line">        ak: <span class="string">'krEFk5Dq5eClQGQ3iG12xoSlOvpoHsb0'</span>,</span><br><span class="line">        output: <span class="string">'json'</span>,</span><br><span class="line">        coordtype: <span class="string">'wgs84ll'</span>,</span><br><span class="line">        location: latitude + <span class="string">','</span> + longitude</span><br><span class="line">      &#125;,</span><br><span class="line">      success: <span class="function"><span class="params">result</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(result)</span><br><span class="line">        res(result.data.result.addressComponent)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  ajax, getCityName, getCityNameBD</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-根目录创建-config-文件夹-并在里创建-constant-js"><a href="#2-根目录创建-config-文件夹-并在里创建-constant-js" class="headerlink" title="2.根目录创建 config 文件夹 并在里创建 constant.js"></a>2.根目录创建 <code>config</code> 文件夹 并在里创建 <code>constant.js</code></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> DEBUG = <span class="literal">true</span>  <span class="comment">// debug = 开发模式</span></span><br><span class="line"><span class="keyword">const</span> BASE_URL = <span class="string">"https://easy-mock.com/mock/5d887e56c030f85c978d0c1f/leftmenu"</span>   <span class="comment">// mock网址</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  DEBUG,</span><br><span class="line">  BASE_URL   <span class="comment">// 导出</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -364,6 +385,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/29/函数的作用域-数组-字符串/" rel="prev" title="函数的作用域 数组 字符串">
+                  函数的作用域 数组 字符串 <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -423,14 +448,14 @@
       src="/images/avatar.jpg"
       alt="安逸">
   <p class="site-author-name" itemprop="name">安逸</p>
-  <div class="site-description" itemprop="description">特立独行的普通人</div>
+  <div class="site-description" itemprop="description">沉下心,给自己多一个机会</div>
 </div>
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -443,7 +468,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -456,7 +481,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

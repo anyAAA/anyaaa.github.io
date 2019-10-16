@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="安逸的完美世界">
 <meta property="og:description" content="javascript 关于数组 字符串的简单操作 需时常默记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-29T05:31:37.025Z">
+<meta property="og:updated_time" content="2019-09-29T09:44:58.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数的作用域 数组 字符串">
 <meta name="twitter:description" content="javascript 关于数组 字符串的简单操作 需时常默记">
@@ -286,7 +286,7 @@
                 
               
 
-              <time title="创建时间：2019-09-29 11:57:16 / 修改时间：13:31:37" itemprop="dateCreated datePublished" datetime="2019-09-29T11:57:16+08:00">2019-09-29</time>
+              <time title="创建时间：2019-09-29 11:57:16 / 修改时间：17:44:58" itemprop="dateCreated datePublished" datetime="2019-09-29T11:57:16+08:00">2019-09-29</time>
             </span>
           
             
@@ -343,17 +343,18 @@
 <p>push 在数组中最后追加一个元素。 推 ，放   <code>array.push(&quot;!&quot;)</code></p>
 <p>pop    删除最后一个数组元素  <code>array.pop</code></p>
 <p>shift  删除第一个数组元素        <code>array.shift</code></p>
-<h2 id="unshift-插入到第一个数组元素-array-unshift-quot-quot"><a href="#unshift-插入到第一个数组元素-array-unshift-quot-quot" class="headerlink" title="unshift 插入到第一个数组元素   array.unshift(&quot;!&quot;)"></a>unshift 插入到第一个数组元素   <code>array.unshift(&quot;!&quot;)</code></h2><h4 id="中间位置-移除-添加"><a href="#中间位置-移除-添加" class="headerlink" title="中间位置 移除  /  添加"></a>中间位置 移除  /  添加</h4><p><code>splice(起始位置，元素的个数)</code>      删除</p>
+<p>unshift 插入到第一个数组元素   <code>array.unshift(&quot;!&quot;)</code></p>
+<h2 id="详细介绍"><a href="#详细介绍" class="headerlink" title="详细介绍:"></a>详细介绍:</h2><h4 id="中间位置-移除-添加"><a href="#中间位置-移除-添加" class="headerlink" title="中间位置 移除  /  添加"></a>中间位置 移除  /  添加</h4><p><code>splice(起始位置，元素的个数)</code>      删除</p>
 <blockquote>
 <p>第一个参数是从哪个位置开始 (开始删) ，第二个参数是删除的个数</p>
 </blockquote>
 <p><code>splice(3,3)</code>                      从第3个位置开始，删除包括3开始的3个数  </p>
 <p><code>splice(array.length-1,1)</code>         删除倒数第一个</p>
 <p>中间用逗号隔开，例如  splice(1,2);</p>
-<p> <code>splice(插入元素起始位置，0，[插入元素])</code>  插入<br> bbb.array(1,2,”charu”);</p>
-<p> 上面的这里：1表示当前插入的位置是1<br>            2表示删除包含位置1的2个数<br>            charu 表示在位置1插入”charu”</p>
+<p> <code>splice(插入元素起始位置，0，[插入元素])</code>  插入<br> <code>bbb.array(1,2,&quot;charu&quot;)</code>;</p>
+<p> 上面的这里：1表示当前插入的位置是1<br>            2表示删除包含位置1的2个数<br>            charu 表示在位置1插入”charu”   </p>
 <h4 id="继续“查询-”"><a href="#继续“查询-”" class="headerlink" title="继续“查询 ”"></a>继续“查询 ”</h4><p>console.log(month[3]);<br>下标查询</p>
-<p>一段数据的查询：  <code>slice</code>  都是位置<br>months.slice(起始位置，结束位置-1)<br>months.slice(3,8) 3-8的数组元素 返回结果还是一个数组。</p>
+<p>一段数据的查询：  <code>slice</code>  都是位置<br>arr.slice(起始位置，结束位置-1)<br>arr.slice(3,8) 3-8的数组元素 返回结果还是一个数组。</p>
 <blockquote>
 <p>返回下标为3，到8，但是不包含8的数组元素</p>
 </blockquote>
@@ -365,9 +366,9 @@
 <blockquote>
 <p>var result=months.join(“-“)   用”-“让数组进行连接</p>
 </blockquote>
-<p>reverse();反转  months.reverse()</p>
+<p>reverse();反转  months.reverse()   字符串才可以进行反转哦!</p>
 <p>toString();  用逗号继续连接各个数组  逻辑值转换为字符串 并返回结果；</p>
-<p>conact();   用于返回 连接两个或多个数组   arrayObject.conact(arrayX,arrayX)  arrayX可以是具体的值 也可以是数组对象</p>
+<p>concat();   用于返回 连接两个或多个数组   arrayObject.concat(arrayX,arrayX)  arrayX可以是具体的值 也可以是数组对象</p>
 <p>var a = [1,2,3];</p>
 <p>a.concat(4,5);</p>
 <p>输出结果是   1,2,3,4,5</p>
@@ -438,6 +439,10 @@
 
             <div class="post-nav-prev post-nav-item">
               
+                <a href="/2019/10/16/微信小程序左右联动菜单-即可左联动-也可右联动/" rel="prev" title="微信小程序左右联动菜单(即可左联动,也可右联动)">
+                  微信小程序左右联动菜单(即可左联动,也可右联动) <i class="fa fa-chevron-right"></i>
+                </a>
+              
             </div>
           </div>
         
@@ -485,7 +490,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的作用域-变量的作用域：变量作用的范围"><span class="nav-number">1.</span> <span class="nav-text">函数的作用域  /  变量的作用域：变量作用的范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">2.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组元素的-增删改查"><span class="nav-number">3.</span> <span class="nav-text">数组元素的 增删改查</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unshift-插入到第一个数组元素-array-unshift-quot-quot"><span class="nav-number"></span> <span class="nav-text">unshift 插入到第一个数组元素   array.unshift(&quot;!&quot;)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#中间位置-移除-添加"><span class="nav-number">0.1.</span> <span class="nav-text">中间位置 移除  /  添加</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继续“查询-”"><span class="nav-number">0.2.</span> <span class="nav-text">继续“查询 ”</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串-String"><span class="nav-number"></span> <span class="nav-text">字符串   String</span></a></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的作用域-变量的作用域：变量作用的范围"><span class="nav-number">1.</span> <span class="nav-text">函数的作用域  /  变量的作用域：变量作用的范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">2.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组元素的-增删改查"><span class="nav-number">3.</span> <span class="nav-text">数组元素的 增删改查</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详细介绍"><span class="nav-number"></span> <span class="nav-text">详细介绍:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#中间位置-移除-添加"><span class="nav-number">0.1.</span> <span class="nav-text">中间位置 移除  /  添加</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继续“查询-”"><span class="nav-number">0.2.</span> <span class="nav-text">继续“查询 ”</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串-String"><span class="nav-number"></span> <span class="nav-text">字符串   String</span></a></div>
         
       </div>
       <!--/noindex-->
@@ -503,7 +508,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

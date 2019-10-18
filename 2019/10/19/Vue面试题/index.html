@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/home-1.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="1. Vue.js介绍Vue.js是一个轻巧、高性能、可组件化的MVVM库，同时拥有非常容易上手的API； Vue.js是一个构建数据驱动的Web界面的库。">
+<meta name="keywords" content="Vue面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue面试题">
+<meta property="og:url" content="http://yoursite.com/2019/10/19/Vue面试题/index.html">
+<meta property="og:site_name" content="安逸的完美世界">
+<meta property="og:description" content="1. Vue.js介绍Vue.js是一个轻巧、高性能、可组件化的MVVM库，同时拥有非常容易上手的API； Vue.js是一个构建数据驱动的Web界面的库。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-18T16:16:52.741Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue面试题">
+<meta name="twitter:description" content="1. Vue.js介绍Vue.js是一个轻巧、高性能、可组件化的MVVM库，同时拥有非常容易上手的API； Vue.js是一个构建数据驱动的Web界面的库。">
+  <link rel="canonical" href="http://yoursite.com/2019/10/19/Vue面试题/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Vue面试题 | 安逸的完美世界</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">安逸的完美世界</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">记录自己的成长</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/19/Vue面试题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="安逸">
+      <meta itemprop="description" content="沉下心,给自己多一个机会">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="安逸的完美世界">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Vue面试题
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-19 00:12:30 / 修改时间：00:16:52" itemprop="dateCreated datePublished" datetime="2019-10-19T00:12:30+08:00">2019-10-19</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Vue面试/" itemprop="url" rel="index"><span itemprop="name">Vue面试</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="1-Vue-js介绍"><a href="#1-Vue-js介绍" class="headerlink" title="1. Vue.js介绍"></a>1. Vue.js介绍</h2><p>Vue.js是一个轻巧、高性能、可组件化的MVVM库，同时拥有非常容易上手的API；</p>
+<p>Vue.js是一个构建数据驱动的Web界面的库。</p>
+<a id="more"></a>
+
+<p>Vue.js是一套构建用户界面的 渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和 Vue生态系统支持的库开发的复杂单页应用。数据驱动+组件化的前端开发。</p>
+<p>简而言之：Vue.js是一个构建数据驱动的 web 界面的渐进式框架。Vue.js 的目标是通过尽可能简单的 API实现响应的数据绑定和组合的视图组件。核心是一个响应的数据绑定系统。</p>
+<h2 id="2、使用Vue的好处"><a href="#2、使用Vue的好处" class="headerlink" title="2、使用Vue的好处"></a>2、使用Vue的好处</h2><p>vue两大特点：响应式编程、组件化</p>
+<p>vue的优势：轻量级框架、简单易学、双向数据绑定、组件化、视图、数据和结构的分离、虚拟DOM、运行速度快</p>
+<h2 id="3、MVVM定义"><a href="#3、MVVM定义" class="headerlink" title="3、MVVM定义"></a>3、MVVM定义</h2><p>MVVM是Model-View-ViewModel的简写。即模型-视图-视图模型。【模型】指的是后端传递的数据。【视图】指的是所看到的页面。【视图模型】mvvm模式的核心，它是连接view和model的桥梁。它有两个方向：一是将【模型】转化成【视图】，即将后端传递的数据转化成所看到的页面。实现的方式是：数据绑定。二是将【视图】转化成【模型】，即将所看到的页面转化成后端的数据。实现的方式是：DOM 事件监听。这两个方向都实现的，我们称之为数据的双向绑定。总结：在MVVM的框架下视图和模型是不能直接通信的。它们通过ViewModel来通信，ViewModel通常要实现一个observer观察者，当数据发生变化，ViewModel能够监听到数据的这种变化，然后通知到对应的视图做自动更新，而当用户操作视图，ViewModel也能监听到视图的变化，然后通知数据做改动，这实际上就实现了数据的双向绑定。并且MVVM中的View 和 ViewModel可以互相通信</p>
+<h2 id="4、Vue的生命周期"><a href="#4、Vue的生命周期" class="headerlink" title="4、Vue的生命周期"></a>4、Vue的生命周期</h2><p>beforeCreate（创建前） 在数据观测和初始化事件还未开始</p>
+<p>created（创建后） 完成数据观测，属性和方法的运算，初始化事件，$el属性还没有显示出来</p>
+<p>beforeMount（载入前） 在挂载开始之前被调用，相关的render函数首次被调用。实例已完成以下的配置：编译模板，把data里面的数据和模板生成html。注意此时还没有挂载html到页面上。</p>
+<p>mounted（载入后） 在el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用。实例已完成以下的配置：用上面编译好的html内容替换el属性指向的DOM对象。完成模板中的html渲染到html页面中。此过程中进行ajax交互。</p>
+<p>beforeUpdate（更新前） 在数据更新之前调用，发生在虚拟DOM重新渲染和打补丁之前。可以在该钩子中进一步地更改状态，不会触发附加的重渲染过程。</p>
+<p>updated（更新后） 在由于数据更改导致的虚拟DOM重新渲染和打补丁之后调用。调用时，组件DOM已经更新，所以可以执行依赖于DOM的操作。然而在大多数情况下，应该避免在此期间更改状态，因为这可能会导致更新无限循环。该钩子在服务器端渲染期间不被调用。</p>
+<p>beforeDestroy（销毁前） 在实例销毁之前调用。实例仍然完全可用。</p>
+<p>destroyed（销毁后） 在实例销毁之后调用。调用后，所有的事件监听器会被移除，所有的子实例也会被销毁。该钩子在服务器端渲染期间不被调用。</p>
+<h2 id="5、Vue的响应式原理"><a href="#5、Vue的响应式原理" class="headerlink" title="5、Vue的响应式原理"></a>5、Vue的响应式原理</h2><p>当一个Vue实例创建时，vue会遍历data选项的属性，用 Object.defineProperty 将它们转为 getter/setter并且在内部追踪相关依赖，在属性被访问和修改时通知变化。 每个组件实例都有相应的 watcher 程序实例，它会在组件渲染的过程中把属性记录为依赖，之后当依赖项的 setter 被调用时，会通知 watcher 重新计算，从而致使它关联的组件得以更新。</p>
+<h2 id="6、第一次页面加载会触发哪几个钩子？"><a href="#6、第一次页面加载会触发哪几个钩子？" class="headerlink" title="6、第一次页面加载会触发哪几个钩子？"></a>6、第一次页面加载会触发哪几个钩子？</h2><p>触发 下面这几个beforeCreate, created, beforeMount, mounted ，并在mounted的时候DOM渲染完成</p>
+<h2 id="7、vue中data必须是一个函数"><a href="#7、vue中data必须是一个函数" class="headerlink" title="7、vue中data必须是一个函数"></a>7、vue中data必须是一个函数</h2><p>对象为引用类型，当重用组件时，由于数据对象都指向同一个data对象，当在一个组件中修改data时，其他重用的组件中的data会同时被修改；而使用返回对象的函数，由于每次返回的都是一个新对象（Object的实例），引用地址不同，则不会出现这个问题。</p>
+<h2 id="8、vue中做数据渲染的时候如何保证将数据原样输出？"><a href="#8、vue中做数据渲染的时候如何保证将数据原样输出？" class="headerlink" title="8、vue中做数据渲染的时候如何保证将数据原样输出？"></a>8、vue中做数据渲染的时候如何保证将数据原样输出？</h2><p>v-text：将数据输出到元素内部，如果输出的数据有HTML代码，会作为普通文本输出</p>
+<p>v-html：将数据输出到元素内部，如果输出的数据有HTML代码，会被渲染</p>
+<p>插值表达式  <code>{ {  } }</code>：，可以直接获取Vue实例中定义的数据或函数，使用插值表达式的时候，值可能闪烁；而使用v-html、v-text不会闪烁，有值就显示，没值就隐藏</p>
+<h2 id="9、active-class是哪个组件的属性？"><a href="#9、active-class是哪个组件的属性？" class="headerlink" title="9、active-class是哪个组件的属性？"></a>9、active-class是哪个组件的属性？</h2><p>vue-router模块的router-link组件。</p>
+<h2 id="10、vue-router有哪几种导航钩子？"><a href="#10、vue-router有哪几种导航钩子？" class="headerlink" title="10、vue-router有哪几种导航钩子？"></a>10、vue-router有哪几种导航钩子？</h2><p>三种。</p>
+<p>一种是全局导航钩子：router.beforeEach(to,from,next)，作用：跳转前进行判断拦截。</p>
+<p>第二种：组件内的钩子；</p>
+<p>第三种：单独路由独享组件</p>
+<h2 id="11、-route和-router的区别"><a href="#11、-route和-router的区别" class="headerlink" title="11、$route和$router的区别"></a>11、$route和$router的区别</h2><p>$route是“路由信息对象”，包括path，params，hash，query，fullPath，matched，name等路由信息参数。</p>
+<p>而$router是“路由实例”对象包括了路由的跳转方法，钩子函数等</p>
+<h2 id="12、vue几种常用的指令"><a href="#12、vue几种常用的指令" class="headerlink" title="12、vue几种常用的指令"></a>12、vue几种常用的指令</h2><p>v-for 、 v-if 、v-bind、v-on、v-show、v-else</p>
+<h2 id="13、v-if-和-v-show-区别"><a href="#13、v-if-和-v-show-区别" class="headerlink" title="13、v-if 和 v-show 区别"></a>13、v-if 和 v-show 区别</h2><p>v-if按照条件是否渲染，v-show是display的block或none</p>
+<h2 id="14、vue常用的修饰符？"><a href="#14、vue常用的修饰符？" class="headerlink" title="14、vue常用的修饰符？"></a>14、vue常用的修饰符？</h2><p>.prevent: 提交事件不再重载页面；<br>.stop: 阻止单击事件冒泡；<br>.self: 当事件发生在该元素本身而不是子元素的时候会触发；<br>.capture: 事件侦听，事件发生的时候会调用</p>
+<h2 id="15、vue-loader是什么？使用它的用途有哪些？"><a href="#15、vue-loader是什么？使用它的用途有哪些？" class="headerlink" title="15、vue-loader是什么？使用它的用途有哪些？"></a>15、vue-loader是什么？使用它的用途有哪些？</h2><p>解析.vue文件的一个加载器，跟template/js/style转换成js模块</p>
+<p>用途：js可以写es6、style样式可以scss或less、template可以加jade等</p>
+<h2 id="16、computed、watch、methods的区别"><a href="#16、computed、watch、methods的区别" class="headerlink" title="16、computed、watch、methods的区别"></a>16、computed、watch、methods的区别</h2><p>computed计算属性是用来声明式的描述一个值依赖了其它的值。当你在模板里把数据绑定到一个计算属性上时，Vue 会在其依赖的任何值导致该计算属性改变时更新 DOM。这个功能非常强大，它可以让你的代码更加声明式、数据驱动并且易于维护。</p>
+<p>watch监听的是你定义的变量,当你定义的变量的值发生变化时，调用对应的方法。就好在div写一个表达式name，data里写入num和lastname,firstname,在watch里当num的值发生变化时，就会调用num的方法，方法里面的形参对应的是num的新值和旧值，而计算属性computed,计算的是Name依赖的值,它不能计算在data中已经定义过的变量。</p>
+<p>methods方法，函数，绑定事件调用；不会使用缓存</p>
+<h2 id="17、什么是js的冒泡？Vue中如何阻止冒泡事件？"><a href="#17、什么是js的冒泡？Vue中如何阻止冒泡事件？" class="headerlink" title="17、什么是js的冒泡？Vue中如何阻止冒泡事件？"></a>17、什么是js的冒泡？Vue中如何阻止冒泡事件？</h2><p>js冒泡概念：当父元素内多级子元素绑定了同一个事件，js会依次从内往外或者从外往内（？）执行每个元素的该事件，从而引发冒泡</p>
+<p> js解决冒泡：event.stopPropagation()</p>
+<p> vue解决冒泡： 事件.stop,例如：@click.stop=”” ,@mouseover.stop=””</p>
+<h2 id="18、vue-组件通信"><a href="#18、vue-组件通信" class="headerlink" title="18、vue 组件通信"></a>18、vue 组件通信</h2><p>1.父组件与子组件传值</p>
+<p>父组件传给子组件：子组件通过props方法接受数据</p>
+<p>子组件传给父组件：$emit方法传递参数</p>
+<p>2.非父子组件间的数据传递，兄弟组件传值</p>
+<p>eventBus，就是创建一个事件中心，相当于中转站，可以用它来传递事件和接收事件。也可使用vuex</p>
+<h2 id="19、的作用是什么？"><a href="#19、的作用是什么？" class="headerlink" title="19、的作用是什么？"></a>19、<keep-alive></keep-alive>的作用是什么？</h2><p><code>&lt;keep-alive&gt;&lt;/keep-alive&gt;</code>包裹动态组件时，会缓存不活动的组件实例,主要用于保留组件状态或避免重新渲染。 大白话: 比如有一个列表和一个详情，那么用户就会经常执行打开详情=&gt;返回列表=&gt;打开详情…这样的话列表和详情都是一个频率很高的页面，那么就可以对列表组件使用<code>&lt;keep-alive&gt;&lt;/keep-alive&gt;</code>进行缓存，这样用户每次返回列表的时候，都能从缓存中快速渲染，而不是重新渲染</p>
+<h2 id="20、-nextTick是什么？"><a href="#20、-nextTick是什么？" class="headerlink" title="20、$nextTick是什么？"></a>20、$nextTick是什么？</h2><p>vue实现响应式并不是数据发生变化后dom立即变化，而是按照一定的策略来进行dom更新。</p>
+<p>$nextTick 是在下次 DOM 更新循环结束之后执行延迟回调，在修改数据之后使用 $nextTick，则可以在回调中获取更新后的 DOM</p>
+<h2 id="21、Vue子组件调用父组件的方法"><a href="#21、Vue子组件调用父组件的方法" class="headerlink" title="21、Vue子组件调用父组件的方法"></a>21、Vue子组件调用父组件的方法</h2><p>第一种方法是直接在子组件中通过this.$parent.event来调用父组件的方法</p>
+<p>第二种方法是在子组件里用$emit向父组件触发一个事件，父组件监听这个事件就行了。</p>
+<h2 id="22、Promise对象是什么？"><a href="#22、Promise对象是什么？" class="headerlink" title="22、Promise对象是什么？"></a>22、Promise对象是什么？</h2><p>1.Promise是异步编程的一种解决方案，它是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。Promise 提供统一的 API，各种异步操作都可以用同样的方法进行处理。promise对象是一个构造函数，用来生成Promise实例；</p>
+<p>2.promise的两个特点 对象状态不受外界影响 &amp;&amp; 一旦状态改变，就不会再变，任何时候都可以得到结果（pending状态–&gt;fulfilled || pending–&gt;rejected）</p>
+<h2 id="23、axios的特点有哪些？"><a href="#23、axios的特点有哪些？" class="headerlink" title="23、axios的特点有哪些？"></a>23、axios的特点有哪些？</h2><p>1、axios是一个基于promise的HTTP库，支持promise的所有API；</p>
+<p>2、它可以拦截请求和响应；</p>
+<p>3、它可以转换请求数据和响应数据，并对响应回来的内容自动转换为json类型的数据；</p>
+<p>4、它安全性更高，客户端支持防御XSRF；</p>
+<h2 id="24、vue中的-ref-是什么？"><a href="#24、vue中的-ref-是什么？" class="headerlink" title="24、vue中的 ref 是什么？"></a>24、vue中的 ref 是什么？</h2><p>ref 被用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 $refs 对象上。如果在普通的 DOM 元素上使用，引用指向的就是 DOM 元素；如果用在子组件上，引用就指向组件实例。</p>
+<h2 id="25、vue如何兼容ie"><a href="#25、vue如何兼容ie" class="headerlink" title="25、vue如何兼容ie"></a>25、vue如何兼容ie</h2><p>babel-polyfill插件</p>
+<h2 id="26、页面刷新vuex被清空解决办法？"><a href="#26、页面刷新vuex被清空解决办法？" class="headerlink" title="26、页面刷新vuex被清空解决办法？"></a>26、页面刷新vuex被清空解决办法？</h2><p>1.localStorage 存储到本地再回去</p>
+<p>2.重新获取接口获取数据</p>
+<h2 id="27、Vue与Angular以及React的区别？"><a href="#27、Vue与Angular以及React的区别？" class="headerlink" title="27、Vue与Angular以及React的区别？"></a>27、Vue与Angular以及React的区别？</h2><p>1.与AngularJS的区别</p>
+<p>相同点：</p>
+<p>都支持指令：内置指令和自定义指令；都支持过滤器：内置过滤器和自定义过滤器；都支持双向数据绑定；都不支持低端浏览器。</p>
+<p>不同点：</p>
+<p>AngularJS的学习成本高，比如增加了Dependency Injection特性，而Vue.js本身提供的API都比较简单、直观；在性能上，AngularJS依赖对数据做脏检查，所以Watcher越多越慢；Vue.js使用基于依赖追踪的观察并且使用异步队列更新，所有的数据都是独立触发的。</p>
+<p>2.与React的区别</p>
+<p>相同点：</p>
+<p>React采用特殊的JSX语法，Vue.js在组件开发中也推崇编写.vue特殊文件格式，对文件内容都有一些约定，两者都需要编译后使用；中心思想相同：一切都是组件，组件实例之间可以嵌套；都提供合理的钩子函数，可以让开发者定制化地去处理需求；都不内置列数AJAX，Route等功能到核心包，而是以插件的方式加载；在组件开发中都支持mixins的特性。</p>
+<p>不同点：</p>
+<p>React采用的Virtual DOM会对渲染出来的结果做脏检查；Vue.js在模板中提供了指令，过滤器等，可以非常方便，快捷地操作Virtual DOM。</p>
+<h2 id="28、localstorage和sessionstorage是什么-区别是什么"><a href="#28、localstorage和sessionstorage是什么-区别是什么" class="headerlink" title="28、localstorage和sessionstorage是什么?区别是什么?"></a>28、localstorage和sessionstorage是什么?区别是什么?</h2><p>localstorage和sessionstorage一样都是用来存储客户端临时信息的对象，他们均只能存储字符串类型对象</p>
+<p>localstorage生命周期是永久的，这意味着除非用户在浏览器提供的UI上清除localstorage信息，否则这些信息将永远存在。</p>
+<p>sessionstorage生命周期为当前窗口或标签，一旦窗口或标签被永久关闭了，那么所有通过sessionstorage存储的数据也将被清空。</p>
+<p>不同浏览器无法共享localstorage或sessionstorage中的信息。相同浏览器的不同页面可以共享相同的localstorage（页面属于相同的域名和端口），但是不同页面或标签间无法共享sessionstorage。这里需要注意的是，页面及标签仅指顶级窗口，如果一个标签页包含多个iframe标签他们属于同源页面，那么他们之间是可以共享sessionstorage的。</p>
+<h2 id="29、为什么要进行前后端分离？前后端分离的优势在哪里？劣势在哪里？"><a href="#29、为什么要进行前后端分离？前后端分离的优势在哪里？劣势在哪里？" class="headerlink" title="29、为什么要进行前后端分离？前后端分离的优势在哪里？劣势在哪里？"></a>29、为什么要进行前后端分离？前后端分离的优势在哪里？劣势在哪里？</h2><p>优点：前端专门负责前端页面和特效的编写，后端专门负责后端业务逻辑的处理，前端追求的是页面美观、页面流畅、页面兼容等。后端追求的是三高（高并发、高可用、高性能）让他们各自负责各自的领域，让专业的人负责处理专业的事情，提高开发效率</p>
+<p>缺点：<br>1 、当接口发生改变的时候，前后端都需要改变<br> 2、 当发生异常的时候，前后端需要联调–联调是非常浪费时间的</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Vue面试/" rel="tag"># Vue面试</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/10/17/微信小程序-IView-List与Icon结合使用/" rel="next" title="微信小程序 IView List与Icon结合使用">
+                  <i class="fa fa-chevron-left"></i> 微信小程序 IView List与Icon结合使用
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Vue-js介绍"><span class="nav-number">1.</span> <span class="nav-text">1. Vue.js介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、使用Vue的好处"><span class="nav-number">2.</span> <span class="nav-text">2、使用Vue的好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、MVVM定义"><span class="nav-number">3.</span> <span class="nav-text">3、MVVM定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、Vue的生命周期"><span class="nav-number">4.</span> <span class="nav-text">4、Vue的生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、Vue的响应式原理"><span class="nav-number">5.</span> <span class="nav-text">5、Vue的响应式原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、第一次页面加载会触发哪几个钩子？"><span class="nav-number">6.</span> <span class="nav-text">6、第一次页面加载会触发哪几个钩子？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、vue中data必须是一个函数"><span class="nav-number">7.</span> <span class="nav-text">7、vue中data必须是一个函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8、vue中做数据渲染的时候如何保证将数据原样输出？"><span class="nav-number">8.</span> <span class="nav-text">8、vue中做数据渲染的时候如何保证将数据原样输出？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9、active-class是哪个组件的属性？"><span class="nav-number">9.</span> <span class="nav-text">9、active-class是哪个组件的属性？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10、vue-router有哪几种导航钩子？"><span class="nav-number">10.</span> <span class="nav-text">10、vue-router有哪几种导航钩子？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11、-route和-router的区别"><span class="nav-number">11.</span> <span class="nav-text">11、$route和$router的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12、vue几种常用的指令"><span class="nav-number">12.</span> <span class="nav-text">12、vue几种常用的指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13、v-if-和-v-show-区别"><span class="nav-number">13.</span> <span class="nav-text">13、v-if 和 v-show 区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14、vue常用的修饰符？"><span class="nav-number">14.</span> <span class="nav-text">14、vue常用的修饰符？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15、vue-loader是什么？使用它的用途有哪些？"><span class="nav-number">15.</span> <span class="nav-text">15、vue-loader是什么？使用它的用途有哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16、computed、watch、methods的区别"><span class="nav-number">16.</span> <span class="nav-text">16、computed、watch、methods的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17、什么是js的冒泡？Vue中如何阻止冒泡事件？"><span class="nav-number">17.</span> <span class="nav-text">17、什么是js的冒泡？Vue中如何阻止冒泡事件？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18、vue-组件通信"><span class="nav-number">18.</span> <span class="nav-text">18、vue 组件通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19、的作用是什么？"><span class="nav-number">19.</span> <span class="nav-text">19、的作用是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20、-nextTick是什么？"><span class="nav-number">20.</span> <span class="nav-text">20、$nextTick是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#21、Vue子组件调用父组件的方法"><span class="nav-number">21.</span> <span class="nav-text">21、Vue子组件调用父组件的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22、Promise对象是什么？"><span class="nav-number">22.</span> <span class="nav-text">22、Promise对象是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23、axios的特点有哪些？"><span class="nav-number">23.</span> <span class="nav-text">23、axios的特点有哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24、vue中的-ref-是什么？"><span class="nav-number">24.</span> <span class="nav-text">24、vue中的 ref 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#25、vue如何兼容ie"><span class="nav-number">25.</span> <span class="nav-text">25、vue如何兼容ie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#26、页面刷新vuex被清空解决办法？"><span class="nav-number">26.</span> <span class="nav-text">26、页面刷新vuex被清空解决办法？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#27、Vue与Angular以及React的区别？"><span class="nav-number">27.</span> <span class="nav-text">27、Vue与Angular以及React的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#28、localstorage和sessionstorage是什么-区别是什么"><span class="nav-number">28.</span> <span class="nav-text">28、localstorage和sessionstorage是什么?区别是什么?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#29、为什么要进行前后端分离？前后端分离的优势在哪里？劣势在哪里？"><span class="nav-number">29.</span> <span class="nav-text">29、为什么要进行前后端分离？前后端分离的优势在哪里？劣势在哪里？</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="安逸">
+  <p class="site-author-name" itemprop="name">安逸</p>
+  <div class="site-description" itemprop="description">沉下心,给自己多一个机会</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">安逸</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
